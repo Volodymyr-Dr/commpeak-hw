@@ -1,0 +1,14 @@
+.fieldWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+
+  .checkboxField {
+    margin-right: 5px;
+  }
+
+  .link {
+    color: var(--primary-btn-bg);
+    cursor: pointer;
+  }
+}

@@ -1,5 +1,6 @@
 import { FieldValues } from "react-hook-form";
 import { IInputField } from "./input.interface";
+import cls from "./input.module.scss";
 
 export const InputField = <T extends FieldValues>({
   fieldName,
@@ -10,25 +11,12 @@ export const InputField = <T extends FieldValues>({
   placeholder,
   customStyles,
   hideRequiredStar,
-  showLink = false,
-  linkText,
-  linkPath,
 }: IInputField<T>) => {
   return (
-    <div className={`mb-4 flex w-full flex-col ${customStyles}`}>
-      <label htmlFor={fieldName} className="text-black">
-        {!hideRequiredStar ? <span className="text-red-500">*</span> : null}
+    <div className={`${cls.fieldWrapper} ${customStyles}`}>
+      <label htmlFor={fieldName} className={cls.label}>
+        {!hideRequiredStar ? <span className={cls.requiredStar}>*</span> : null}
         {label}
-        {showLink && linkText && linkPath ? (
-          <a
-            href={linkPath}
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-500"
-          >
-            {linkText}
-          </a>
-        ) : null}
       </label>
       <input
         {...register(fieldName)}
@@ -38,10 +26,10 @@ export const InputField = <T extends FieldValues>({
           register(fieldName).onChange(e);
         }}
         placeholder={placeholder}
-        className={`box-border rounded-md border border-gray-200 outline-none placeholder:text-gray-400 focus:border-gray-600`}
+        className={cls.inputField}
       />
       {errors && errors[fieldName] && (
-        <p className="text-xs text-red-500">{errors[fieldName].message}</p>
+        <p className="field-error-message">{errors[fieldName].message}</p>
       )}
     </div>
   );

@@ -3,24 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --primary-btn-bg: #007bff;
+  --primary-btn-bg-hover: #0056b3;
 }
 
 body {
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.field-error-message {
+  color: rgb(255, 94, 94);
+  font-size: 12px;
+  line-height: 1;
 }

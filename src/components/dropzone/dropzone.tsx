@@ -2,6 +2,7 @@ import { FC, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { FilePreview, IDropzone } from "./dropzone.interface";
 import { UploadFile } from "@/assets/icons";
+import cls from "./dropzone.module.scss";
 
 export const Dropzone: FC<IDropzone> = ({ setDropFiles, dropFiles }) => {
   const maxSize = 4 * 1024 * 1024;
@@ -35,21 +36,17 @@ export const Dropzone: FC<IDropzone> = ({ setDropFiles, dropFiles }) => {
   };
 
   return (
-    <section className={`border-2 border-dashed rounded-lg py-8 px-24 mb-4`}>
+    <div className={cls.wrapper}>
       <div
         {...getRootProps({
-          className: `text-center flex flex-col items-center`,
+          className: cls.dropContent,
         })}
       >
         <input {...getInputProps()} />
-        <span className="text-xl text-gray-700">Add a Resume</span>
-        <span className="text-base text-gray-400">
-          Allowed file types: .pdf, .docx
-        </span>
-        <span className="text-base text-gray-400">
-          Maximum accepted number of files is 1
-        </span>
-        <span className="text-base text-gray-400">Max file size: 4MB</span>
+        <span>Add a Resume</span>
+        <span>Allowed file types: .pdf, .docx</span>
+        <span>Maximum accepted number of files is 1</span>
+        <span>Max file size: 4MB</span>
         <UploadFile fill="#C0C0C0" />
         {!dropFiles?.length ? (
           <button type="button" onClick={open}>
@@ -58,17 +55,11 @@ export const Dropzone: FC<IDropzone> = ({ setDropFiles, dropFiles }) => {
         ) : null}
       </div>
       <aside>
-        <ul className="mt-2">
+        <ul>
           {(dropFiles || []).map((file: FilePreview) => (
-            <li key={file.path} className="flex item-center flex-col">
-              <span
-                className={`text-center text-ellipsis whitespace-nowrap overflow-hidden`}
-              >
-                {file.path}
-              </span>
-              <button onClick={removeFile(file)} className="mt-4 ">
-                CLEAR FILES
-              </button>
+            <li key={file.path} className={cls.uploadedFile}>
+              <span>{file.path}</span>
+              <button onClick={removeFile(file)}>CLEAR FILES</button>
             </li>
           ))}
         </ul>
@@ -76,6 +67,6 @@ export const Dropzone: FC<IDropzone> = ({ setDropFiles, dropFiles }) => {
           <p className="text-red-200 text-center mt-2">File is too large!</p>
         )}
       </aside>
-    </section>
+    </div>
   );
 };

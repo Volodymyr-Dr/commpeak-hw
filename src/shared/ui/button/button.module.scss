@@ -1,5 +1,5 @@
 .primaryButton {
-  background-color: #007bff;
+  background-color: var(--primary-btn-bg);
   color: #fff;
   border: none;
   padding: 5px 25px;
@@ -10,6 +10,6 @@
   text-transform: uppercase;
 
   &:hover {
-    background-color: #003e80;
+    background-color: var(--primary-btn-bg-hover);
   }
 }

@@ -2,16 +2,16 @@
 import React, { FC, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
-import { InputField } from "../../form-fields/input";
+
 import { ApplySchema, applySchema } from "@/shared";
 import { Dropzone } from "@/components/dropzone";
 import { FilePreview } from "@/components/dropzone/dropzone.interface";
 import { Button, Modal } from "@/shared/ui";
 import Image from "next/image";
 import cls from "./apply-form.module.scss";
+import { CheckboxField, InputField } from "@/components/form-fields";
 
 export const ApplyForm = () => {
-  // const [dropFiles, setDropFiles] = useState<FilePreview[]>([]);
   const [showModal, setShowModal] = useState(false);
   const {
     register,
@@ -38,9 +38,9 @@ export const ApplyForm = () => {
     setShowModal(false);
   };
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Apply</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className={cls.formWrap}>
+      <h2>Apply</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className={cls.form}>
         <InputField
           fieldName="firstName"
           label="First Name"
@@ -65,13 +65,10 @@ export const ApplyForm = () => {
           register={register}
           errors={errors}
         />
-        <InputField
+        <CheckboxField
           fieldName="isReferrerFullName"
           label="Referrered by a CommPeak emplloyee"
-          type="checkbox"
           register={register}
-          errors={errors}
-          hideRequiredStar
         />
         {watch("isReferrerFullName") && (
           <InputField
@@ -92,24 +89,20 @@ export const ApplyForm = () => {
             <Dropzone dropFiles={field.value} setDropFiles={field.onChange} />
           )}
         />
-        <InputField
+        <CheckboxField
           fieldName="isAgreedTermsOfService"
           label="I have read and agree to CommPeak's "
-          type="checkbox"
           register={register}
           errors={errors}
-          hideRequiredStar
           showLink
           linkText="Terms of Service"
           linkPath="https://www.commpeak.com/legal/terms-of-service"
         />
-        <InputField
+        <CheckboxField
           fieldName="isAgreedPrivacyPolicy"
           label="Referrered by a CommPeak emplloyee "
-          type="checkbox"
           register={register}
           errors={errors}
-          hideRequiredStar
           showLink
           linkText="Privacy Policy"
           linkPath="https://www.commpeak.com/legal/privacy-policy"
@@ -127,10 +120,9 @@ export const ApplyForm = () => {
         </Button>
       </form>
       <Modal isOpen={showModal} onClose={handleCloseModal}>
-        <div className="text-center bg-white">
-          <h2 className="text-2xl font-bold">Thank You!</h2>
-          <p className="text-lg">We got your application.</p>
-          <p>Your ID is</p>
+        <div className={cls.appliedContent}>
+          <h2>Thank You!</h2>
+          <p>We got your application.</p>
           <Image src="/folder.png" alt="folder" width={300} height={300} />
           <Button onClick={handleCloseModal}>Close</Button>
         </div>
