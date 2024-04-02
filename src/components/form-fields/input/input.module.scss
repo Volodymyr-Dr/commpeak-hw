@@ -15,7 +15,7 @@
 
   .inputField {
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--primary-grey);
     border-radius: 5px;
     font-size: 14px;
 
@@ -23,9 +23,8 @@
       outline: none;
       border-color: #007bff;
     }
-
-    &::placeholder {
-      color: #ccc;
+    r &::placeholder {
+      color: var(--primary-grey);
     }
   }
 }

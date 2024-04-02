@@ -25,7 +25,7 @@
 
 .isSubmitting {
   cursor: wait;
-  background-color: #ccc !important;
+  background-color: var(--primary-grey) !important;
 }
 
 .appliedContent {

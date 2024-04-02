@@ -64,7 +64,7 @@ export const Dropzone: FC<IDropzone> = ({ setDropFiles, dropFiles }) => {
           ))}
         </ul>
         {isFileTooLarge && (
-          <p className="text-red-200 text-center mt-2">File is too large!</p>
+          <p className="field-error-message">File is too large!</p>
         )}
       </aside>
     </div>

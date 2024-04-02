@@ -5,6 +5,7 @@
 :root {
   --primary-btn-bg: #007bff;
   --primary-btn-bg-hover: #0056b3;
+  --primary-grey: #c3c3c3;
 }
 
 body {
