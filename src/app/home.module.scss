@@ -1,0 +1,11 @@
+.formSection {
+  background-color: ghostwhite;
+  width: 100%;
+}
+
+.formSectionContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 70px;
+  padding: 50px 70px;
+}
