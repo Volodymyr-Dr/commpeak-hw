@@ -1,4 +1,4 @@
-import { ApplyForm } from "@/components/forms/apply-form";
+import { ApplyForm } from "@/components/forms";
 
 export default function Home() {
   return (

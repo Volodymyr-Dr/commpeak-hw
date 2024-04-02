@@ -15,6 +15,7 @@
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.51.2",
+    "sass": "^1.72.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

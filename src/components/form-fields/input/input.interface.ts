@@ -6,7 +6,10 @@ export interface IInputField<T extends FieldValues> {
   errors?: any;
   register: UseFormRegister<T>;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   customStyles?: string;
   hideRequiredStar?: boolean;
+  showLink?: boolean;
+  linkText?: string;
+  linkPath?: string;
 }

@@ -28,8 +28,6 @@ export const Dropzone: FC<IDropzone> = ({ setDropFiles, dropFiles }) => {
   const isFileTooLarge =
     fileRejections.length > 0 && fileRejections[0].file.size > maxSize;
 
-  console.log(isFileTooLarge);
-
   const removeFile = (file: FilePreview) => () => {
     const newFiles = [...(dropFiles || [])] as FilePreview[];
     newFiles.splice(newFiles.indexOf(file), 1);
