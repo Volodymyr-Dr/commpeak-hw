@@ -9,11 +9,12 @@ export const InputField = <T extends FieldValues>({
   label,
   placeholder,
   customStyles,
+  hideRequiredStar,
 }: IInputField<T>) => {
   return (
-    <div className={`mb-3 flex w-full flex-col ${customStyles}`}>
+    <div className={`mb-4 flex w-full flex-col ${customStyles}`}>
       <label htmlFor={fieldName} className="text-black">
-        <span className="text-red-500">*</span>
+        {!hideRequiredStar ? <span className="text-red-500">*</span> : null}
         {label}
       </label>
       <input

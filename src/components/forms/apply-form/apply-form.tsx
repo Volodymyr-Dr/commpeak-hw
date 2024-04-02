@@ -1,13 +1,17 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { InputField } from "../../form-fields/input";
 import { ApplySchema, applySchema } from "@/shared";
+import { Dropzone } from "@/components/dropzone";
+import { FilePreview } from "@/components/dropzone/dropzone.interface";
 
 export const ApplyForm = () => {
+  const [dropFiles, setDropFiles] = useState<FilePreview[]>([]);
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors, isValid, isDirty, isSubmitting },
   } = useForm<ApplySchema>({
@@ -50,7 +54,6 @@ export const ApplyForm = () => {
           type="email"
           register={register}
           errors={errors}
-          customStyles="mb-4"
         />
         <div>checkbox</div>
         <InputField
@@ -60,9 +63,16 @@ export const ApplyForm = () => {
           type="text"
           register={register}
           errors={errors}
-          customStyles="mb-4"
+          hideRequiredStar
         />
-        <div>dropzone</div>
+        <Controller
+          name="file"
+          control={control}
+          defaultValue={[]}
+          render={({ field }) => (
+            <Dropzone dropFiles={field.value} setDropFiles={field.onChange} />
+          )}
+        />
         <div>checkbox</div>
         <div>checkbox</div>
         <button

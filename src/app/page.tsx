@@ -1,5 +1,3 @@
-"use client";
-
 import { ApplyForm } from "@/components/forms/apply-form";
 
 export default function Home() {
