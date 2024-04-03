@@ -1,0 +1,44 @@
+.positionWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  background: linear-gradient(
+    287.44deg,
+    rgba(198, 219, 251, 0.8) 3.31%,
+    rgba(198, 219, 251, 0.28) 24.26%,
+    rgba(198, 219, 251, 0.096) 48.3%,
+    rgba(198, 219, 251, 0.152) 80.7%,
+    rgba(197, 218, 251, 0.8) 119.69%
+  );
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .description {
+    display: flex;
+
+    p {
+      font-size: 14px;
+      line-height: 2;
+      margin-right: 20px;
+    }
+  }
+
+  .image {
+    width: 35%;
+    clip-path: polygon(35% 0%, 65% 0%, 95% 100%, 5% 100%);
+  }
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    padding: 20px;
+
+    .image {
+      width: 100%;
+      clip-path: none;
+    }
+  }
+}

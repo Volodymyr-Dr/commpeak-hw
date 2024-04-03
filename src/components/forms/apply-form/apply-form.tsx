@@ -1,15 +1,13 @@
 "use client";
 import React, { FC, useState } from "react";
+import Image from "next/image";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
-
-import { ApplySchema, applySchema } from "@/shared";
 import { Dropzone } from "@/components/dropzone";
-import { FilePreview } from "@/components/dropzone/dropzone.interface";
+import { ApplySchema, applySchema } from "@/shared/utils";
 import { Button, Modal } from "@/shared/ui";
-import Image from "next/image";
-import cls from "./apply-form.module.scss";
 import { CheckboxField, InputField } from "@/components/form-fields";
+import cls from "./apply-form.module.scss";
 
 export const ApplyForm = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,6 +16,7 @@ export const ApplyForm = () => {
     control,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isValid, isDirty, isSubmitting },
   } = useForm<ApplySchema>({
     resolver: yupResolver<ApplySchema>(applySchema),
@@ -27,10 +26,13 @@ export const ApplyForm = () => {
   async function onSubmit(data: ApplySchema) {
     console.log(data);
     await new Promise<void>((resolve) => {
-      setTimeout(() => {
+      const idTimer = setTimeout(() => {
         resolve();
-      }, 2000);
+        reset();
+        clearTimeout(idTimer);
+      }, 300);
     });
+
     setShowModal(true);
   }
 

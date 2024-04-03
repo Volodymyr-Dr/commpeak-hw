@@ -1,4 +1,9 @@
 .sectionContainer {
   max-width: 1440px;
+  padding: 50px 80px;
   margin: 0 auto;
+
+  @media (max-width: 991px) {
+    padding: 30px 20px;
+  }
 }

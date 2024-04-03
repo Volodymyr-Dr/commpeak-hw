@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-
 import cls from "./company-description.module.scss";
 
 export interface ICompanyDescriptionProps {}
@@ -18,6 +17,7 @@ export const CompanyDescription = () => {
       <Image
         src="/careers.jpg"
         alt="Careers"
+        priority
         width={700}
         height={400}
         className={cls.image}

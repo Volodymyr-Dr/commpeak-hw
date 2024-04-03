@@ -26,4 +26,12 @@
     border-radius: 8px;
     margin-top: 10px;
   }
+
+  @media (max-width: 1024px) {
+    position: initial;
+  }
+
+  @media (max-width: 720px) {
+    min-width: 300px;
+  }
 }

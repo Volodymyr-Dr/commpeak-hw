@@ -1,10 +1,6 @@
 import React from "react";
 import cls from "./section-container.module.scss";
-
-export interface ISectionContainer {
-  children: React.ReactNode;
-  customStyles?: string;
-}
+import { ISectionContainer } from "./section-container.interface";
 
 export const SectionContainer = ({
   children,

@@ -44,3 +44,10 @@
     margin-bottom: 10px;
   }
 }
+
+@media (max-width: 1024px) {
+  .formWrap {
+    min-width: 300px;
+    max-width: 100%;
+  }
+}
