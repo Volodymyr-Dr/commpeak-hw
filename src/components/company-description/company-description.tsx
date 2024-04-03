@@ -1,12 +1,12 @@
 import React from "react";
+import Image from "next/image";
 
 import cls from "./company-description.module.scss";
-import Image from "next/image";
 
 export interface ICompanyDescriptionProps {}
 export const CompanyDescription = () => {
   return (
-    <div>
+    <div className={cls.wrapper}>
       <h2>Company Description</h2>
       <p>
         CommPeak makes cloud-based communication easier and more affordable,

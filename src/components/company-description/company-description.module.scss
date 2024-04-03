@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  min-width: 350px;
+  max-width: 500px;
+  width: 100%;
+  position: sticky;
+  top: 50px;
+
+  h2 {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 2;
+    margin: 20px 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+}
