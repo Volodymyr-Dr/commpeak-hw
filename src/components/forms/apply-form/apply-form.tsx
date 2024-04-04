@@ -73,7 +73,7 @@ export const ApplyForm = () => {
           register={register}
           defaultChecked
         />
-        {watch("isReferrerFullName") && (
+        {watch("isReferrerFullName", true) && (
           <InputField
             fieldName="referrerFullName"
             label="Referrer Full Name"
