@@ -8,6 +8,7 @@ export const CheckboxField = <T extends FieldValues>({
   register,
   label,
   customStyles,
+  defaultChecked = false,
   showLink = false,
   linkText,
   linkPath,
@@ -18,6 +19,7 @@ export const CheckboxField = <T extends FieldValues>({
         <input
           {...register(fieldName)}
           id={fieldName}
+          defaultChecked={defaultChecked}
           type="checkbox"
           onChange={(e) => {
             register(fieldName).onChange(e);

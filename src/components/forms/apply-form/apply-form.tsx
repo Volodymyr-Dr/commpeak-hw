@@ -71,6 +71,7 @@ export const ApplyForm = () => {
           fieldName="isReferrerFullName"
           label="Referrered by a CommPeak emplloyee"
           register={register}
+          defaultChecked
         />
         {watch("isReferrerFullName") && (
           <InputField

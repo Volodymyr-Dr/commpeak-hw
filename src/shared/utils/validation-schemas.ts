@@ -7,8 +7,12 @@ export const applySchema = yup.object({
     .string()
     .email("Please enter valid email")
     .required("Email is required"),
-  isReferrerFullName: yup.bool(),
-  referrerFullName: yup.string(),
+  isReferrerFullName: yup.boolean().default(true),
+  referrerFullName: yup
+    .string()
+    .when("isReferrerFullName", ([isReferrerFullName], schema) => {
+      return isReferrerFullName ? schema.required(" ") : schema;
+    }),
   file: yup.array(),
   isAgreedTermsOfService: yup
     .bool()

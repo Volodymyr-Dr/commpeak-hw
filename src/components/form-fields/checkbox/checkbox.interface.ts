@@ -5,6 +5,8 @@ export interface ICheckboxField<T extends FieldValues> {
   errors?: any;
   register: UseFormRegister<T>;
   label: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
   customStyles?: string;
   showLink?: boolean;
   linkText?: string;
